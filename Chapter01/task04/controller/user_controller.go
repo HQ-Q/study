@@ -3,7 +3,6 @@ package controller
 import (
 	"demo/Chapter01/task04/models"
 	"demo/Chapter01/task04/services"
-	"fmt"
 	"net/http"
 
 	_ "github.com/dgrijalva/jwt-go"
@@ -85,10 +84,8 @@ func Login(c *gin.Context) {
 // Logout 登出
 func Logout(c *gin.Context) {
 	//删除 token
-	token, _ := c.Get("token")
-	//token转为字符串
-	tokenStrings := fmt.Sprint(token)
-	ok, err := services.UserService{}.Logout(tokenStrings)
+	token := c.GetString("token")
+	ok, err := services.UserService{}.Logout(token)
 	if ok {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "Logout successfully",

@@ -25,5 +25,6 @@ func main() {
 	//createTable()
 	r := gin.Default()
 	controller.UserControllerInit(r)
+	controller.PostControllerInit(r)
 	r.Run(":8080")
 }
