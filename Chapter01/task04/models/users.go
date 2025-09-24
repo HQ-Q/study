@@ -1,10 +1,10 @@
 package models
 
 type Users struct {
-	Id       int    `json:"id" gorm:"id"`
-	UserName string `json:"username" gorm:"username"`
-	Password string `json:"password" gorm:"password"`
-	Email    string `json:"email" gorm:"email"`
+	Id       int    `json:"id" gorm:"id" `
+	Username string `gorm:"unique;not null" json:"username"`
+	Password string `gorm:"not null" json:"password"`
+	Email    string `gorm:"unique;not null" json:"email"`
 }
 
 func (Users) TableName() string {

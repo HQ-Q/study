@@ -2,8 +2,10 @@ package main
 
 import (
 	_ "database/sql"
+	"demo/Chapter01/task04/controller"
 	"demo/Chapter01/task04/models"
 
+	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 )
@@ -20,5 +22,8 @@ func createTable() {
 }
 
 func main() {
-	createTable()
+	//createTable()
+	r := gin.Default()
+	controller.UserControllerInit(r)
+	r.Run(":8080")
 }
