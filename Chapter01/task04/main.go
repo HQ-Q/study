@@ -26,5 +26,6 @@ func main() {
 	r := gin.Default()
 	controller.UserControllerInit(r)
 	controller.PostControllerInit(r)
+	controller.CommentControllerInit(r)
 	r.Run(":8080")
 }
